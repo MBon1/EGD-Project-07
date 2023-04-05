@@ -764,7 +764,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -778,7 +778,8 @@ MonoBehaviour:
   m_Text: "Programmer: Matthew Bonnecaze & Soud Editor\nLevel Designer: Skip King\n\n\"Windy,
     creaky old house ambience\"\n(from freesound.org by pfranzen)     \nLicensing:
     Attribution 4.0 International (CC BY 4.0)\r\n\n\"\rSerene Crystal Singing Bowls\"\n(from
-    pixabay.com byRedwoodRunner)\n\nArt Assets: "
+    pixabay.com byRedwoodRunner)\n\n\"Simple Skeleton\"\n(from Unity Asset Store
+    by Prizma)"
 --- !u!222 &1221517660
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1062,7 +1063,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24.99997, y: -11}
+  m_AnchoredPosition: {x: -24.99997, y: 11.090113}
   m_SizeDelta: {x: 500, y: 320}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1894512583
