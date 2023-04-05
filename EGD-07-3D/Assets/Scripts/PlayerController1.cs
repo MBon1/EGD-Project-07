@@ -106,38 +106,14 @@ public class PlayerController1 : MonoBehaviour
                 score++;
                 Destroy(hit.gameObject);
             }
+        }
+    }
 
-            if (hitTag == "Monster")
-            {
-                
-            }
-
-            /*// If the player hit a projectile spawner, restock the player's projectiles
-            if (hitTag == "ProjectileSpawner")
-            {
-                hit.gameObject.GetComponent<ProjectileSpawner>().CollectProjectile();
-                bulletStock = bulletCap;
-            }
-
-            // If the player hit a Collectable, collect the Collectable
-            if (hitTag == "Collectable")
-            {
-                hit.gameObject.GetComponent<Collectable>().Collect();
-            }
-
-            // If the player hit the flashlight, turn on the player's light
-            if (hitTag == "Flashlight")
-            {
-                hit.gameObject.GetComponent<Collectable>().Collect();
-                light.intensity = lightIntensity;
-            }
-
-            // If the player hit UFO and the player has collected all of the parts, send the player to the win screen
-            if (hitTag == "UFO" && hit.gameObject.GetComponent<UFO>().GetPartCount() == 0)
-            {
-                Cursor.lockState = CursorLockMode.None;
-                sceneManager.LoadScene("Win");
-            }*/
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Monster"))
+        {
+            SceneLoader.LoadScene("GameOver");
         }
     }
 }

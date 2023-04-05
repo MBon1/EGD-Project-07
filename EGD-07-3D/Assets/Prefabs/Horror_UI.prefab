@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   micIndex: 0
-  sampleWindow: 57600
+  sampleWindow: 1024
   useMaxVolume: 1
 --- !u!1 &6809216967167048239
 GameObject:
