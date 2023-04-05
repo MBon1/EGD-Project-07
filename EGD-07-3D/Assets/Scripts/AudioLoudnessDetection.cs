@@ -6,7 +6,7 @@ public class AudioLoudnessDetection : MonoBehaviour
 {
     public int micIndex = 0;
     string micName;
-    private AudioClip micClip;
+    public AudioClip micClip { get; private set; }
 
     public int sampleWindow = 1024;   // 64
     [Header("Sampling Method")]
@@ -25,18 +25,6 @@ public class AudioLoudnessDetection : MonoBehaviour
     private void OnDestroy()
     {
         StopMic();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void StartMic()
