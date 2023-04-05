@@ -15,8 +15,8 @@ public class PlayerController1 : MonoBehaviour
     [SerializeField] float speed = 5.5f;        // Player movement speed
     float maxSlope;
     bool onStableGround;
-
-    [SerializeField] GameObject[] whisps;
+    
+    public int goal = 1;
     int score = 0;
 
     /*[SerializeField] GameObject bullet;
@@ -105,6 +105,8 @@ public class PlayerController1 : MonoBehaviour
             {
                 score++;
                 Destroy(hit.gameObject);
+                if (score >= goal)
+                    SceneLoader.LoadScene("LapFinished");
             }
         }
     }
