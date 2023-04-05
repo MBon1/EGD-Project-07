@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class Bot : MonoBehaviour
 {
     NavMeshAgent agent;
     public GameObject target;
+    public Operation operation = Operation.Wander;
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +20,18 @@ public class Bot : MonoBehaviour
     void Update()
     {
         //Flee(target.transform.position);
-        Pursue();
+        //Pursue();
         //Evade();
         //Wander();
         //PathFollowing();
+        if (operation == Operation.Wander)
+        {
+            Wander();
+        }
+        if (operation == Operation.Pursue)
+        {
+            Pursue();
+        }
     }
 
     void Seek(Vector3 location)
@@ -38,7 +48,8 @@ public class Bot : MonoBehaviour
     void Pursue()
     {
         Vector3 targetDir = target.transform.position - this.transform.position;
-        float targetSpeed = target.GetComponent<Drive>().currentSpeed;
+        Vector3 targetVelocity = target.transform.GetComponent<CharacterController>().velocity;
+        float targetSpeed = targetVelocity.magnitude;
 
         float relativeHeading = Vector3.Angle(this.transform.forward, this.transform.TransformVector(target.transform.forward));
         float toTarget = Vector3.Angle(this.transform.forward, this.transform.TransformVector(targetDir));
@@ -51,13 +62,13 @@ public class Bot : MonoBehaviour
 
         float lookAhead = targetDir.magnitude / (agent.speed + targetSpeed);
 
-        Seek(target.transform.position + target.transform.forward * lookAhead);
+        Seek(target.transform.position + targetVelocity.normalized * lookAhead);
     }
 
     void Evade()
     {
         Vector3 targetDir = target.transform.position - this.transform.position;
-        float targetSpeed = target.GetComponent<Drive>().currentSpeed;
+        float targetSpeed = target.transform.GetComponent<CharacterController>().velocity.magnitude;
 
         float lookAhead = targetDir.magnitude / (agent.speed + targetSpeed);
         Flee(target.transform.position + target.transform.forward * lookAhead);
@@ -119,5 +130,11 @@ public class Bot : MonoBehaviour
     { 
         OneTime,
         Cyclical
+    }
+
+    public enum Operation
+    {
+        Pursue,
+        Wander
     }
 }

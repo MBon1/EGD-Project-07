@@ -107,6 +107,11 @@ public class PlayerController1 : MonoBehaviour
                 Destroy(hit.gameObject);
             }
 
+            if (hitTag == "Monster")
+            {
+                
+            }
+
             /*// If the player hit a projectile spawner, restock the player's projectiles
             if (hitTag == "ProjectileSpawner")
             {
