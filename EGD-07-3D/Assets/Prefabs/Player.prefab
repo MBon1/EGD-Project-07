@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 375
   player: {fileID: 5169051588219734016}
+  lockCursor: 1
 --- !u!1 &5169051586962112025
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +113,7 @@ GameObject:
   - component: {fileID: 5169051586962112007}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -318,9 +319,10 @@ GameObject:
   - component: {fileID: 5169051588219734016}
   - component: {fileID: 5169051588219734017}
   - component: {fileID: 5169051588219734019}
+  - component: {fileID: 1954838389}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -375,3 +377,19 @@ MonoBehaviour:
   canMove: 1
   speed: 3
   whisps: []
+--- !u!54 &1954838389
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5169051588219734018}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0

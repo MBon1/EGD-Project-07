@@ -10,10 +10,15 @@ public class CameraController : MonoBehaviour
 
     float xRotation = 0;
 
+    public bool lockCursor = true;
+
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        if (lockCursor)
+            Cursor.lockState = CursorLockMode.Locked;
+        else
+            Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame
