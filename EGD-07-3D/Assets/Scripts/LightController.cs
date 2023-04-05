@@ -16,12 +16,21 @@ public class LightController : MonoBehaviour
     [SerializeField] float changeTime = 0;
     [SerializeField] GameObject player;
     [SerializeField] float distanceMultiplier = 1;
+    [SerializeField] bool updateIntensity = false;
 
     private void Awake()
     {
         light = this.GetComponent<Light>();
-        maxRange = light.range;
-        light.range = 0;
+        if (updateIntensity)
+        {
+            maxRange = light.intensity;
+            light.intensity = 0;
+        }
+        else
+        {
+            maxRange = light.range;
+            light.range = 0;
+        }
     }
 
     // Start is called before the first frame update
@@ -41,25 +50,32 @@ public class LightController : MonoBehaviour
             Debug.Log(distanceFromPlayer);
             distanceFromPlayer = Mathf.Clamp(distanceFromPlayer, 0, 1);
         }
-        
-
 
         float loudness = detection.GetLoudnessFromMic() * loudnessSensibility;
 
         if (loudness < threshold)
             loudness = 0;
 
+        float illuminationValue;
+
         if (changeTime <= 0)
         {
-            light.range = Mathf.Lerp(0, maxRange, loudness);
+            illuminationValue = Mathf.Lerp(0, maxRange, loudness);
         }
         else
         {
-            light.range = Mathf.Lerp(light.range, Mathf.Lerp(0, maxRange, loudness), changeTime * Time.deltaTime);
+            float currVal = light.range;
+            if (updateIntensity)
+                currVal = light.intensity;
+            illuminationValue = Mathf.Lerp(currVal, Mathf.Lerp(0, maxRange, loudness), changeTime * Time.deltaTime);
         }
 
+        illuminationValue *= distanceFromPlayer; 
 
-        light.range *= distanceFromPlayer;
+        if (updateIntensity)
+            light.intensity = illuminationValue;
+        else
+            light.range = illuminationValue;
     }
 
     float DistanceFromPlayer()

@@ -16,6 +16,9 @@ public class PlayerController1 : MonoBehaviour
     float maxSlope;
     bool onStableGround;
 
+    [SerializeField] GameObject[] whisps;
+    int score = 0;
+
     /*[SerializeField] GameObject bullet;
     [SerializeField] GameObject[] bullets = new GameObject[3];
     [SerializeField] int bulletCap = 3;
@@ -97,6 +100,12 @@ public class PlayerController1 : MonoBehaviour
         if (hit != null)
         {
             string hitTag = hit.gameObject.tag;
+
+            if (hitTag == "Whisp")
+            {
+                score++;
+                Destroy(hit.gameObject);
+            }
 
             /*// If the player hit a projectile spawner, restock the player's projectiles
             if (hitTag == "ProjectileSpawner")

@@ -423,7 +423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &863701253
 Light:
   m_ObjectHideFlags: 0
@@ -475,7 +475,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -518,6 +518,7 @@ MonoBehaviour:
   changeTime: 0
   player: {fileID: 0}
   distanceMultiplier: 1
+  updateIntensity: 1
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,7 +683,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1010f9d5432b67847b1337bd248ba1d8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1439,7 +1440,7 @@ GameObject:
   - component: {fileID: 1608630554}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Whisp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1534,10 +1535,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detection: {fileID: 1229697952}
   loudnessSensibility: 1
-  threshold: 0
+  threshold: 0.1
   changeTime: 1
   player: {fileID: 1954838388}
   distanceMultiplier: 2
+  updateIntensity: 1
 --- !u!108 &1608630555
 Light:
   m_ObjectHideFlags: 0
@@ -1549,8 +1551,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.645283, g: 0.997039, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.7490566, g: 0.9972117, b: 1, a: 1}
+  m_Intensity: 10
   m_Range: 7.5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1590,11 +1592,11 @@ Light:
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
   m_Lightmapping: 1
-  m_LightShadowCasterMode: 0
+  m_LightShadowCasterMode: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
+  m_ColorTemperature: 20000
+  m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
@@ -1940,6 +1942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canMove: 1
   speed: 3
+  whisps: []
 --- !u!4 &1954838390
 Transform:
   m_ObjectHideFlags: 0
