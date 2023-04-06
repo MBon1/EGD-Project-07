@@ -689,6 +689,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Horror_UI
       objectReference: {fileID: 0}
+    - target: {fileID: 8745349510540642862, guid: 8cdf8c45a8fa97d4e85355f6000736ba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9157824693029445640, guid: 8cdf8c45a8fa97d4e85355f6000736ba, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

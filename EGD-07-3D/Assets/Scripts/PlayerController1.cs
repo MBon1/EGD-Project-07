@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController1 : MonoBehaviour
@@ -18,6 +19,8 @@ public class PlayerController1 : MonoBehaviour
     
     public int goal = 1;
     int score = 0;
+
+    public Text scoreText;
 
     /*[SerializeField] GameObject bullet;
     [SerializeField] GameObject[] bullets = new GameObject[3];
@@ -104,6 +107,7 @@ public class PlayerController1 : MonoBehaviour
             if (hitTag == "Whisp")
             {
                 score++;
+                scoreText.text = score + "/" + goal;
                 Destroy(hit.gameObject);
                 if (score >= goal)
                     SceneLoader.LoadScene("LapFinished");
